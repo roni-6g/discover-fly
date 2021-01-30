@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking</title>
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
@@ -53,18 +54,20 @@
                     <label for="">First Class ($150)</label>
                     <input class="inp-style inp-width" type="number" name="">
                 </div>
-                <div class="plus-minus-btn">
-                    <p>+ -</p>
+                <div class="btn-plus-minus">
+                    <button class="btn"><i class="fas fa-plus"></i></button>
+                    <button class="btn"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label for="economy-input">Economy ($100)</label>
+                    <input id="economy-input" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                <div class="btn-plus-minus">
+                    <button id="economy-incrase" class="btn"><i class="fas fa-plus"></i></button>
+                    <button id="economy-decrease" class="btn"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
             <div class="calculations">
@@ -73,7 +76,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="subtotal">$00</p>
                     </div>
                 </div>
 
@@ -103,8 +106,51 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
     </section>
+    <script>
+        //Increase Economy Ticket Number
+        var increaseEconomy = document.getElementById('economy-incrase');
+        increaseEconomy.addEventListener('click', function(){
+        //    var economyTicket = document.getElementById('economy-input');
+        //    var economyCount = parseInt(economyTicket.value);
+        //    var newEconomy = economyCount + 1;
+        //    economyTicket.value = newEconomy;
+        //    var economyTicketPrice = newEconomy * 100;
+        //    console.log(economyTicketPrice);
+        //    var economyPrice = document.getElementById('subtotal');
+        //    var economyNewPrice = parseInt(economyPrice);
+        //    document.getElementById('subtotal').innerText = '$' + economyTicketPrice;
+           
+            flightBooking(true);
 
-    <!--Thank You-->
+        });
+
+        //Decrease Economy Ticket Number
+
+        var decreaseEconomy = document.getElementById('economy-decrease');
+        decreaseEconomy.addEventListener('click', function(){
+            
+            flightBooking(false);
+
+        });
+
+        function flightBooking(isTicketIncrease){
+            var economyTicket = document.getElementById('economy-input');
+            var economyCount = parseInt(economyTicket.value);
+            var newEconomy = economyCount;            
+            if(isTicketIncrease == false){
+                newEconomy = economyCount - 1;
+            }
+            if(isTicketIncrease == true){
+                newEconomy = economyCount + 1;
+            }
+            economyTicket.value = newEconomy;
+            var economyTicketPrice = newEconomy * 100;
+            var economyPrice = document.getElementById('subtotal');
+            var economyNewPrice = parseInt(economyPrice);
+            document.getElementById('subtotal').innerText = '$' + economyTicketPrice;
+        }
+
+    </script>
 </body>
 
 </html>

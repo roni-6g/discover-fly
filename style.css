@@ -120,3 +120,16 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+.btn-plus-minus {
+    margin-top: 13px;
+}
+
+.btn {
+    font-size: 18px;
+    padding: 7px ;
+    background-color: hotpink;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+}
