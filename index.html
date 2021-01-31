@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -51,20 +52,22 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="first-input" class="inp-style inp-width" type="number" value="0">
                 </div>
-                <div class="plus-minus-btn">
-                    <p>+ -</p>
+                <div class="btn-plus-minus">
+                    <button onclick="ticketUpDown('first', true)" class="btn"><i class="fas fa-plus"></i></button>
+                    <button onclick="ticketUpDown('first', false)" class="btn"><i class="fas fa-minus"></i> </button>
                 </div>
             </div>
             
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="economy-input" class="inp-style inp-width" value="0" type="number">
                 </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                <div class="btn-plus-minus">                    
+                    <button onclick=" ticketUpDown('economy', true)" class="btn"><i class="fas fa-plus"></i></button>
+                    <button onclick="ticketUpDown('economy', false)" class="btn"><i class="fas fa-minus"></i> </button>
                 </div>
             </div>
             <div class="calculations">
@@ -73,7 +76,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="sub-total">$500</p>
                     </div>
                 </div>
 
@@ -82,7 +85,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="tax">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -91,7 +94,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total">$550</p>
                     </div>
                 </div>
             </div>
@@ -103,5 +106,125 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
     </section>
+    
+    <script>        
+        //All working in One Function
+        function ticketUpDown(ticket, isTicketUp){
+            var ticketInput = document.getElementById( ticket + '-input' );
+            var ticketCount = parseInt(ticketInput.value);
+            var newTicketCount = ticketCount;
+            if(isTicketUp == false && ticketCount > 0  ){
+                newTicketCount = ticketCount - 1;
+            }
+            if(isTicketUp == true){
+                newTicketCount = ticketCount + 1;
+            }
+            ticketInput.value = newTicketCount;
+            if(ticket == 'first'){                
+                var totalTicketCount = newTicketCount * 150;
+            }
+            if(ticket == 'economy'){                
+                var totalTicketCount = newTicketCount * 100;
+            };
+            calculateTicketPrice();
+        };
+
+    // Calculate All Ticket Price
+        function calculateTicketPrice(){
+            var firstClass = getTicketInput('first');
+            var economyClass = getTicketInput('economy');
+            var subTotalPrice = firstClass * 150 + economyClass * 100;
+            var vat = Math.round(subTotalPrice * 0.10);
+            var totalPrice = subTotalPrice + vat;
+            document.getElementById('sub-total').innerText = '$' + subTotalPrice;
+            document.getElementById('tax').innerText = '$' + vat;
+            document.getElementById('total').innerText = '$' + totalPrice;
+        };
+
+    //Get Any class ticket Input value
+        function getTicketInput(ticketName){
+            var ticketCountNumber = document.getElementById( ticketName + '-input');
+            var totalCountNumber = parseInt(ticketCountNumber.value);
+            return totalCountNumber;
+        };
+
+    // Firstclass Ticket Up and Down function code below
+        // function firstUpDown(isTicketUp){
+        //     var firstInput = document.getElementById('first-input');
+        //     var firstCount = parseInt(firstInput.value);
+        //     var firstNewNumber = firstCount;
+        //     if(isTicketUp == false && firstCount > 0 ){
+        //         firstNewNumber = firstCount - 1;
+        //     }
+        //     if(isTicketUp == true){
+        //         firstNewNumber = firstCount + 1;
+        //     }
+        //     firstInput.value = firstNewNumber;
+        //     var firstTotalDown = firstNewNumber * 150;
+        //     console.log(firstTotalDown);
+        // };
+
+    // //Economy Up and Down Function code below
+        // function ticketUpDown(isTicketUp){
+        //     var economyInput = document.getElementById('economy-input');
+        //     var economyCount = parseInt(economyInput.value);
+        //     var economyNewNumber = economyCount;
+        //     if(isTicketUp == false && economyCount > 0  ){
+        //         economyNewNumber = economyCount - 1;
+        //     }
+        //     if(isTicketUp == true){
+        //         economyNewNumber = economyCount + 1;
+        //     }
+        //     economyInput.value = economyNewNumber;
+        //     var totalEconomy = economyNewNumber * 100;
+        //     console.log(totalEconomy);
+        // };
+
+    // Firstclass Ticket Number Up details code below
+        // var firstUp = document.getElementById('first-increase');
+        // firstUp.addEventListener('click', function(){
+        //     var firstInput = document.getElementById('first-input');
+        //     var firstCount = parseInt(firstInput.value);
+        //     var firstNewNumber = firstCount + 1;
+        //     firstInput.value = firstNewNumber;
+        //     var totalFirst = firstNewNumber * 150;
+        //     console.log(totalFirst);
+        // });
+
+    // Firstclass Ticket Number Down details code below
+        // var firstDown = document.getElementById('first-decrease');
+        // firstDown.addEventListener('click', function(){
+        //     var firstInput = document.getElementById('first-input');
+        //     var firstCount = parseInt(firstInput.value);
+        //     var firstNewNumber = firstCount - 1;
+        //     firstInput.value = firstNewNumber;
+        //     var firstTotalDown = firstNewNumber * 150;
+        //     console.log(firstTotalDown);
+        // })
+
+   
+    // Economy Ticket Number Up Details Code below
+        // var economyUp = document.getElementById('economy-increase');
+        // economyUp.addEventListener('click', function(){
+        //     var economyInput = document.getElementById('economy-input');
+        //     var economyCount = parseInt(economyInput.value);
+        //     var economyNewNumber = economyCount + 1;
+        //     economyInput.value = economyNewNumber;
+        //     var totalEconomyUp = economyNewNumber * 100;
+        //     //console.log(totalEconomyUp);
+        // });
+
+    // Economy Ticket Number Down Details Code below
+        // var economyDown = document.getElementById('economy-decrease');
+        // economyDown.addEventListener('click', function(){
+        //     var economyInput = document.getElementById('economy-input');
+        //     var economyCount = parseInt(economyInput.value);
+        //     var economyNewNumber = economyCount - 1;
+        //     economyInput.value = economyNewNumber;
+        //     var totalEconomyDown = economyNewNumber * 100;
+        //     //console.log(totalEconomyDown);
+        // });
+
+    </script>
 </body>
 </html>
