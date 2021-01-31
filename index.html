@@ -27,204 +27,92 @@
         </nav>
     </header>
 
-    <Section>
-    <main class="main-content container">
-        <div class="booking-form">
-            <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
+    <Section id="booking" class="booking-area">
+        <main class="main-content container">
+            <div class="booking-form">
+                <h3>Booking Flights</h3>
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                    <label for="">Flying From</label>
+                    <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
                 </div>
                 <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" type="text" name="" placeholder="New York, United States">
                 </div>
-            </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input id="first-input" class="inp-style inp-width" type="number" value="0">
-                </div>
-                <div class="btn-plus-minus">
-                    <button onclick="ticketUpDown('first', true)" class="btn"><i class="fas fa-plus"></i></button>
-                    <button onclick="ticketUpDown('first', false)" class="btn"><i class="fas fa-minus"></i> </button>
-                </div>
-            </div>
-            
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input id="economy-input" class="inp-style inp-width" value="0" type="number">
-                </div>
-                <div class="btn-plus-minus">                    
-                    <button onclick=" ticketUpDown('economy', true)" class="btn"><i class="fas fa-plus"></i></button>
-                    <button onclick="ticketUpDown('economy', false)" class="btn"><i class="fas fa-minus"></i> </button>
-                </div>
-            </div>
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
                     </div>
-                    <div class="right">
-                        <p id="sub-total">$00</p>
+                    <div class="input-group">
+                        <label for="">Return</label>
+                        <input class="inp-style" type="date" name="">
                     </div>
                 </div>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">First Class ($150)</label>
+                        <input id="first-input" class="inp-style inp-width" type="number" value="0">
+                    </div>
+                    <div class="btn-plus-minus">
+                        <button onclick="ticketUpDown('first', true)" class="btn"><i class="fas fa-plus"></i></button>
+                        <button onclick="ticketUpDown('first', false)" class="btn"><i class="fas fa-minus"></i> </button>
+                    </div>
+                </div>
+                
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">Economy ($100)</label>
+                        <input id="economy-input" class="inp-style inp-width" value="0" type="number">
+                    </div>
+                    <div class="btn-plus-minus">                    
+                        <button onclick=" ticketUpDown('economy', true)" class="btn"><i class="fas fa-plus"></i></button>
+                        <button onclick="ticketUpDown('economy', false)" class="btn"><i class="fas fa-minus"></i> </button>
+                    </div>
+                </div>
+                <div class="calculations">
+                    <div class="amount">
+                        <div class="left">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="right">
+                            <p id="sub-total">$00</p>
+                        </div>
+                    </div>
 
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
+                    <div class="amount">
+                        <div class="left">
+                            <p>Charge 10% VAT</p>
+                        </div>
+                        <div class="right">
+                            <p id="tax">$00</p>
+                        </div>
                     </div>
-                    <div class="right">
-                        <p id="tax">$00</p>
+                    <hr>
+                    <div class="amount">
+                        <div class="left">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="right">
+                            <p id="total">$00</p>
+                        </div>
                     </div>
                 </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p id="total">$00</p>
-                    </div>
-                </div>
+                <button id="confirmation" class="btn-style">Book Now</button>
             </div>
-            <button class="btn-style">Book Now</button>
-        </div>
 
-        <div class="booking-content">
-            <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
-        </div>
+            <div class="booking-content">
+                <h1>discover <br> around the world</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            </div>
+        </main>
+    </section>
+    <section id="thank-you" class="confirmation">
+        <h1>Thank You! Ticket booking done</h1>
+        <button id="book-now" class=" download-btn">Home</button> 
+        <button class="download-btn">Download </button>
     </section>
 
-    <script>        
-        //All working in One Function
-        function ticketUpDown(ticket, isTicketUp){
-            var ticketInput = document.getElementById( ticket + '-input' );
-            var ticketCount = parseInt(ticketInput.value);
-            var newTicketCount = ticketCount;
-            if(isTicketUp == false && ticketCount > 0  ){
-                newTicketCount = ticketCount - 1;
-            }
-            if(isTicketUp == true){
-                newTicketCount = ticketCount + 1;
-            }
-            ticketInput.value = newTicketCount;
-            if(ticket == 'first'){                
-                var totalTicketCount = newTicketCount * 150;
-            }
-            if(ticket == 'economy'){                
-                var totalTicketCount = newTicketCount * 100;
-            };
-            calculateTicketPrice();
-        };
-
-    // Calculate All Ticket Price
-        function calculateTicketPrice(){
-            var firstClass = getTicketInput('first');
-            var economyClass = getTicketInput('economy');
-            var subTotalPrice = firstClass * 150 + economyClass * 100;
-            var vat = Math.round(subTotalPrice * 0.10);
-            var totalPrice = subTotalPrice + vat;
-            document.getElementById('sub-total').innerText = '$' + subTotalPrice;
-            document.getElementById('tax').innerText = '$' + vat;
-            document.getElementById('total').innerText = '$' + totalPrice;
-        };
-
-    //Get Any class ticket Input value
-        function getTicketInput(ticketName){
-            var ticketCountNumber = document.getElementById( ticketName + '-input');
-            var totalCountNumber = parseInt(ticketCountNumber.value);
-            return totalCountNumber;
-        };
-
-    // Firstclass Ticket Up and Down function code below
-        // function firstUpDown(isTicketUp){
-        //     var firstInput = document.getElementById('first-input');
-        //     var firstCount = parseInt(firstInput.value);
-        //     var firstNewNumber = firstCount;
-        //     if(isTicketUp == false && firstCount > 0 ){
-        //         firstNewNumber = firstCount - 1;
-        //     }
-        //     if(isTicketUp == true){
-        //         firstNewNumber = firstCount + 1;
-        //     }
-        //     firstInput.value = firstNewNumber;
-        //     var firstTotalDown = firstNewNumber * 150;
-        //     console.log(firstTotalDown);
-        // };
-
-    // //Economy Up and Down Function code below
-        // function ticketUpDown(isTicketUp){
-        //     var economyInput = document.getElementById('economy-input');
-        //     var economyCount = parseInt(economyInput.value);
-        //     var economyNewNumber = economyCount;
-        //     if(isTicketUp == false && economyCount > 0  ){
-        //         economyNewNumber = economyCount - 1;
-        //     }
-        //     if(isTicketUp == true){
-        //         economyNewNumber = economyCount + 1;
-        //     }
-        //     economyInput.value = economyNewNumber;
-        //     var totalEconomy = economyNewNumber * 100;
-        //     console.log(totalEconomy);
-        // };
-
-    // Firstclass Ticket Number Up details code below
-        // var firstUp = document.getElementById('first-increase');
-        // firstUp.addEventListener('click', function(){
-        //     var firstInput = document.getElementById('first-input');
-        //     var firstCount = parseInt(firstInput.value);
-        //     var firstNewNumber = firstCount + 1;
-        //     firstInput.value = firstNewNumber;
-        //     var totalFirst = firstNewNumber * 150;
-        //     console.log(totalFirst);
-        // });
-
-    // Firstclass Ticket Number Down details code below
-        // var firstDown = document.getElementById('first-decrease');
-        // firstDown.addEventListener('click', function(){
-        //     var firstInput = document.getElementById('first-input');
-        //     var firstCount = parseInt(firstInput.value);
-        //     var firstNewNumber = firstCount - 1;
-        //     firstInput.value = firstNewNumber;
-        //     var firstTotalDown = firstNewNumber * 150;
-        //     console.log(firstTotalDown);
-        // })
-
-   
-    // Economy Ticket Number Up Details Code below
-        // var economyUp = document.getElementById('economy-increase');
-        // economyUp.addEventListener('click', function(){
-        //     var economyInput = document.getElementById('economy-input');
-        //     var economyCount = parseInt(economyInput.value);
-        //     var economyNewNumber = economyCount + 1;
-        //     economyInput.value = economyNewNumber;
-        //     var totalEconomyUp = economyNewNumber * 100;
-        //     //console.log(totalEconomyUp);
-        // });
-
-    // Economy Ticket Number Down Details Code below
-        // var economyDown = document.getElementById('economy-decrease');
-        // economyDown.addEventListener('click', function(){
-        //     var economyInput = document.getElementById('economy-input');
-        //     var economyCount = parseInt(economyInput.value);
-        //     var economyNewNumber = economyCount - 1;
-        //     economyInput.value = economyNewNumber;
-        //     var totalEconomyDown = economyNewNumber * 100;
-        //     //console.log(totalEconomyDown);
-        // });
-
-    </script>
+    <script src="booking.js"></script>
 </body>
 </html>
